@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class ElectronicRoll
     Inherits System.Windows.Forms.Form
 
@@ -36,6 +36,7 @@ Partial Class ElectronicRoll
         Me.rollDgv.AllowUserToResizeColumns = False
         Me.rollDgv.AllowUserToResizeRows = False
         Me.rollDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.rollDgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.rollDgv.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.rollDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
