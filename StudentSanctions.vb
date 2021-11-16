@@ -1,4 +1,4 @@
-﻿Imports System.Data.SqlClient
+Imports System.Data.SqlClient
 Imports System.Configuration
 
 
@@ -97,6 +97,10 @@ Public Class StudentSanctions
         sanctionListDgv.Columns(0).Visible = False ' Sanction Sequence Number
         sanctionListDgv.Columns(1).Visible = False ' Staff ID
         sanctionListDgv.Columns(4).Visible = False ' Student ID
+
+        ' Define the width of the StaffReason comment column because it can contain some long text.
+        sanctionListDgv.Columns(8).Width = 400
+
 
         For columnIndex As Integer = 0 To sanctionListDgv.Columns.Count - 1
             With sanctionListDgv.Columns(columnIndex)
