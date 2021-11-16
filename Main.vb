@@ -1,10 +1,10 @@
-﻿Imports System.Data.SqlClient
+Imports System.Data.SqlClient
 Imports System.Configuration
 
 
 Public Class Main
 
-    Private versionNumber As String = "3.0.0"
+    Private versionNumber As String = "3.0.3"
 
     Private intScreenWidth As Integer = Screen.PrimaryScreen.Bounds.Width
     Private intScreenHeight As Integer = Screen.PrimaryScreen.Bounds.Height
