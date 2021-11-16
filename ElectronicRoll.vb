@@ -1,4 +1,4 @@
-﻿Imports System.Data.SqlClient
+Imports System.Data.SqlClient
 Imports System.Configuration
 
 
@@ -9,8 +9,7 @@ Public Class ElectronicRoll
     Private rollDset As New DataSet
     Private minimumFormHeight As Integer = 300
 
-    Private Sub electronicRoll_Load(
-            ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub Form_Load(sender As Object, e As System.EventArgs) Handles MyBase.Load
 
         Try
 
@@ -42,19 +41,37 @@ Public Class ElectronicRoll
                 Next
 
                 With rollDgv
-                    .AutoResizeColumns()
-                    .Columns(0).Visible = False
-                    .Columns(1).Visible = False
-                    .Columns(3).Resizable = True
-                    .Columns(5).HeaderText = "Tutor Group"
-                    .Columns(6).Visible = False
-                    .Columns(7).HeaderText = "Type"
-                    .Columns(8).Visible = False
-                    .Columns(9).HeaderText = "Notes"
-                    .Columns(10).ReadOnly = False
-                    .Columns(11).HeaderText = "YLM Notes (optional)"
-                    .Columns(11).ReadOnly = False
-                    .Columns(11).Width = 300
+
+                    .Columns("SanctionSeq").Visible = False
+                    .Columns("StudentId").Visible = False
+
+                    .Columns("Preferred").Resizable = True
+                    .Columns("Preferred").DisplayIndex = 0
+
+                    .Columns("Surname").Resizable = True
+                    .Columns("Surname").DisplayIndex = 1
+
+                    .Columns("Present").ReadOnly = False
+                    .Columns("Present").DisplayIndex = 2
+                    .Columns("Present").DefaultCellStyle.BackColor = Color.LightGray
+                    .Columns("Present").DefaultCellStyle.SelectionBackColor = Color.LightGray
+
+                    .Columns("Tutor").HeaderText = "Tutor Group"
+                    .Columns("SanctionDate").Visible = False
+                    .Columns("ReasonType").HeaderText = "Type"
+                    .Columns("SanctionCode").Visible = False
+
+                    .Columns("StaffReason").HeaderText = "Notes"
+                    .Columns("StaffReason").AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .Columns("StaffReason").DefaultCellStyle.WrapMode = DataGridViewTriState.True
+                    .Columns("StaffReason").Width = 300
+
+                    .Columns("HOYNotes").HeaderText = "YLM Notes (optional)"
+                    .Columns("HOYNotes").ReadOnly = False
+                    .Columns("HOYNotes").AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .Columns("HOYNotes").DefaultCellStyle.WrapMode = DataGridViewTriState.True
+                    .Columns("HOYNotes").Width = 300
+
                 End With
 
                 rollDgv.Width = rollDgv.Columns.GetColumnsWidth(DataGridViewElementStates.Visible) + 1
@@ -94,7 +111,10 @@ Public Class ElectronicRoll
                             rollUpdateCmd.Parameters.AddWithValue("Present", row("Present"))
                             rollUpdateCmd.Parameters.AddWithValue("HoyNotes", row("HoyNotes"))
                             rollUpdateCmd.Parameters.AddWithValue("SanctionSeq", row("SanctionSeq"))
+
                             rollUpdateCmd.ExecuteNonQuery()
+
+                            rollUpdateCmd.Parameters.Clear()
 
                         Next
 
@@ -115,3 +135,4 @@ Public Class ElectronicRoll
     End Sub
 
 End Class
+
